@@ -11,8 +11,13 @@ This demo project is using Spring Boot with Swagger and H2 database.
 
 ## Getting Started
 
-Run the following commands :
+Get the stack helper repository and run : 
 -mvn clean install
+
+Then, get the stack helper demo repository, and run :
+-mvn clean install
+
+From now on, you will be able to run the demo application :
 -java -jar ./target/stack-helper-demo-1.0.0-SNAPSHOT.jar
 
 Open the following URL in your web browser :
