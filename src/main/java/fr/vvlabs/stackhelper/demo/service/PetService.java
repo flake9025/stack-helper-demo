@@ -2,6 +2,7 @@ package fr.vvlabs.stackhelper.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import fr.vvlabs.stackhelper.demo.dao.PetDao;
 import fr.vvlabs.stackhelper.demo.dto.PetDTO;
@@ -16,21 +17,23 @@ public class PetService extends AbstractService<Pet, Integer, PetDTO, PetWriteDT
 	private PetDao petDao;
 	
 	@Override
-	protected Pet updateModel(final Pet model, final PetWriteDTO dto) {
-		// check name
-		if(dto.getName().isEmpty()) {
-			// pet name should be unique !
-			if(petDao.findByName(dto.getName()) == null){
-				model.setName(dto.getName());
-			}
+	protected void updateModel(Pet model, PetWriteDTO dto) {
+		// update id ?
+		if(dto.getId() != null) {
+			model.setId(dto.getId());
+		}
+		// check name, should be unique !
+		if(!dto.getName().isEmpty() && petDao.findByName(dto.getName()) == null) {
+			model.setName(dto.getName());
 		}
 		// check friends
-		for(Integer friendId : dto.getFriendsIds()){
-			// pet friend should exists !
-			if(petDao.existsById(friendId)){
-				model.getFriends().add(petDao.findById(friendId).get());
+		if(!CollectionUtils.isEmpty(dto.getFriendsIds())) {
+			for(Integer friendId : dto.getFriendsIds()){
+				// pet friend should exists !
+				if(petDao.existsById(friendId)){
+					model.getFriends().add(petDao.findById(friendId).get());
+				}
 			}
 		}
-		return model;
 	}
 }
