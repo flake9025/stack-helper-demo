@@ -5,6 +5,8 @@ https://github.com/flake9025/stack-helper
 
 This demo project is using Spring Boot with Swagger and H2 database.
 
+You will be able to create, update, delete and find pets ! enjoy :)
+
 ## Prerequisites
 - JDK 8
 - Maven
