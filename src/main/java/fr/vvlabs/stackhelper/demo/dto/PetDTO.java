@@ -24,7 +24,7 @@ public class PetDTO extends AbstractDto<Integer> {
 	// ===========================================================
 
 	private String name;
-	private List<PetDTO> friends;
+	private List<String> friends;
 	
 	// ===========================================================
 	// Methods
@@ -35,7 +35,7 @@ public class PetDTO extends AbstractDto<Integer> {
 	 *
 	 * @param friend the friend
 	 */
-	public void addFriend(PetDTO friend) {
+	public void addFriend(String friend) {
 		if(friends == null) {
 			friends = new ArrayList<>();
 		}
@@ -47,7 +47,7 @@ public class PetDTO extends AbstractDto<Integer> {
 	 *
 	 * @param friend the friend
 	 */
-	public void removeFriend(PetDTO friend) {
+	public void removeFriend(String friend) {
 		if(friends == null) {
 			friends = new ArrayList<>();
 		}

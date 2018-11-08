@@ -15,7 +15,7 @@ public class PetMapperImpl implements AbstractMapper<Pet, Integer, PetDTO> {
 		dto.setId(model.getId());
 		dto.setName(model.getName());
 		for(Pet pet : model.getFriends()){
-			dto.addFriend(mapToDto(pet));
+			dto.addFriend(pet.getName());
 		}
 		return dto;
 	}
