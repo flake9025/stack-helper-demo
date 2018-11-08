@@ -26,8 +26,8 @@ public class PetController extends AbstractRestController<Pet, Integer, PetDTO, 
 	@GetMapping(params = { "page", "size" })
 	public ResponseEntity<Page<PetDTO>> findAll( //
 			@QuerydslPredicate(root = Pet.class) Predicate predicate, //
-			@RequestParam(value = "page", defaultValue = "0") int page, //
-			@RequestParam(value = "size",  defaultValue = "30") int size, //
+			@RequestParam(value = "page", required = false, defaultValue = "0") int page, //
+			@RequestParam(value = "size",  required = false, defaultValue = "30") int size, //
 			@RequestParam(value = "sort",  required = false) String sort //
 			) { //
 		return super.findAll(predicate, page, size, sort);
