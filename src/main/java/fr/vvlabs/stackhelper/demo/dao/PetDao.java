@@ -1,12 +1,12 @@
 package fr.vvlabs.stackhelper.demo.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import fr.vvlabs.stackhelper.dao.AbstractDAO;
 import fr.vvlabs.stackhelper.demo.model.Pet;
 
 @Repository
-public interface PetDao extends JpaRepository<Pet, Integer> {
+public interface PetDao extends AbstractDAO<Pet, Integer> {
 
 	/**
 	 * Find by name.

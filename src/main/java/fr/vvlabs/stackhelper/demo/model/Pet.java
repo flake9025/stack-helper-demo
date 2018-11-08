@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import fr.vvlabs.stackhelper.model.AbstractModelGenereatedId;
+import fr.vvlabs.stackhelper.model.AbstractModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,7 +22,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Pet extends AbstractModelGenereatedId<Integer> {
+public class Pet extends AbstractModel<Integer> {
 
 	// ===========================================================
 	// Fields

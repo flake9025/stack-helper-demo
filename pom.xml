@@ -75,6 +75,20 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+		  <groupId>com.querydsl</groupId>
+		  <artifactId>querydsl-apt</artifactId>
+<!-- 		  <version>${querydsl.version}</version> -->
+<!-- 		  <scope>provided</scope> -->
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.querydsl</groupId>
+		  <artifactId>querydsl-jpa</artifactId>
+<!-- 		  <version>${querydsl.version}</version> -->
+		</dependency>
+		
 
 		<!-- MapStruct -->
 		<dependency>
@@ -89,7 +103,7 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
+
 		<!-- VV Labs -->
 		<dependency>
 			<groupId>fr.vvlabs</groupId>
@@ -105,7 +119,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<!-- add annotations processors -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -126,6 +140,23 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+			<!-- QueryDSL -->
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.1.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/java</outputDirectory>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
