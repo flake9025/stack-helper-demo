@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
 
-@Builder
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper=true)
