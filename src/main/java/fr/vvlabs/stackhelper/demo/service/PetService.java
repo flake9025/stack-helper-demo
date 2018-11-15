@@ -26,6 +26,12 @@ public class PetService extends AbstractService<Pet, Integer, PetDTO, PetWriteDT
 		if(!dto.getName().isEmpty() && petDao.findByName(dto.getName()) == null) {
 			model.setName(dto.getName());
 		}
+		// age
+		if(dto.getAge() > 0) {
+			model.setAge(dto.getAge());
+		}
+		// sex
+		model.setMale(dto.isMale());
 		// check friends
 		if(!CollectionUtils.isEmpty(dto.getFriendsIds())) {
 			for(Integer friendId : dto.getFriendsIds()){

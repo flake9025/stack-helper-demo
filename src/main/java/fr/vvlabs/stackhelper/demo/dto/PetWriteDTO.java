@@ -16,6 +16,10 @@ public class PetWriteDTO extends AbstractDto<Integer> {
 	
 	private static final long serialVersionUID = 7024460882422573494L;
 	
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
 	private String name;
 	private int age;
 	private boolean male;
