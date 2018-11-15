@@ -27,6 +27,10 @@ http://localhost:8080/swagger-ui.html
 
 Try it !
 
+## Database console
+
+http://localhost:8080/h2-console
+
 ## Examples
 
 http://localhost:8080/pets
