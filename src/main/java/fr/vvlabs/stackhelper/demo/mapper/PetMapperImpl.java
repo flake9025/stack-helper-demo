@@ -1,5 +1,9 @@
 package fr.vvlabs.stackhelper.demo.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import fr.vvlabs.stackhelper.demo.dto.PetDTO;
@@ -11,12 +15,23 @@ public class PetMapperImpl implements AbstractMapper<Pet, Integer, PetDTO> {
 
 	@Override
 	public PetDTO mapToDto(Pet model){
+		
+		List<String> friends = model.getFriends().stream().map(Pet::getName).collect(Collectors.toList());
+		/*
+		return PetDTO.builder() //
+			.id(model.getId()) //
+			.name(model.getName()) //
+			.age(model.getAge()) //
+			.male(model.isMale()) //
+			.friends(friends) //
+			.build();*/
+		
 		PetDTO dto = new PetDTO();
 		dto.setId(model.getId());
 		dto.setName(model.getName());
-		for(Pet pet : model.getFriends()){
-			dto.addFriend(pet.getName());
-		}
+		dto.setAge(model.getAge());
+		dto.setMale(model.isMale());
+		dto.setFriends(friends);
 		return dto;
 	}
 }

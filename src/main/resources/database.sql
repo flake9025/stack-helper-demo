@@ -8,7 +8,9 @@ USE `pets`;
 DROP TABLE IF EXISTS pet;
 CREATE TABLE pet (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  name varchar(255) DEFAULT NULL,
+  name varchar(255) NOT NULL,
+  age int(10) unsigned NOT NULL,
+  male boolean NOT NULL,
   PRIMARY KEY (id)
 );
 

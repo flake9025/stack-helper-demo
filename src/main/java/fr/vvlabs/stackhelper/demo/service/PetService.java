@@ -31,7 +31,7 @@ public class PetService extends AbstractService<Pet, Integer, PetDTO, PetWriteDT
 			for(Integer friendId : dto.getFriendsIds()){
 				// pet friend should exists !
 				if(petDao.existsById(friendId)){
-					model.getFriends().add(petDao.findById(friendId).get());
+					model.addFriend(petDao.findById(friendId).get());
 				}
 			}
 		}
