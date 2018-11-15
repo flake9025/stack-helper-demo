@@ -1,6 +1,5 @@
 package fr.vvlabs.stackhelper.demo.mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,14 +16,6 @@ public class PetMapperImpl implements AbstractMapper<Pet, Integer, PetDTO> {
 	public PetDTO mapToDto(Pet model){
 		
 		List<String> friends = model.getFriends().stream().map(Pet::getName).collect(Collectors.toList());
-		/*
-		return PetDTO.builder() //
-			.id(model.getId()) //
-			.name(model.getName()) //
-			.age(model.getAge()) //
-			.male(model.isMale()) //
-			.friends(friends) //
-			.build();*/
 		
 		PetDTO dto = new PetDTO();
 		dto.setId(model.getId());
