@@ -7,11 +7,10 @@ USE `pets`;
 
 DROP TABLE IF EXISTS pet;
 CREATE TABLE pet (
-  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  id int auto_increment primary key,
   name varchar(255) NOT NULL,
-  age int(10) unsigned NOT NULL,
+  age int NOT NULL,
   male boolean NOT NULL,
-  PRIMARY KEY (id)
 );
 
 --
@@ -20,8 +19,8 @@ CREATE TABLE pet (
 
 DROP TABLE IF EXISTS pet_friends;
 CREATE TABLE pet_friends (
-  pet_id int(10) unsigned NOT NULL,
-  friend_id int(10) unsigned NOT NULL,
+  pet_id int NOT NULL,
+  friend_id int NOT NULL,
   PRIMARY KEY (pet_id,friend_id),
   CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES pet (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_friend_id FOREIGN KEY (friend_id) REFERENCES pet (id) ON DELETE CASCADE ON UPDATE CASCADE

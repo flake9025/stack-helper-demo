@@ -23,5 +23,5 @@ public class PetWriteDTO extends AbstractDto<Integer> {
 	private String name;
 	private int age;
 	private boolean male;
-	private List<Integer> friendsIds;
+	private List<Integer> friendsIds; // friends ids
 }

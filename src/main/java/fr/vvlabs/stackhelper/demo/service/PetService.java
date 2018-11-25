@@ -3,6 +3,7 @@ package fr.vvlabs.stackhelper.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import fr.vvlabs.stackhelper.demo.dao.PetDao;
 import fr.vvlabs.stackhelper.demo.dto.PetDTO;
@@ -23,7 +24,7 @@ public class PetService extends AbstractService<Pet, Integer, PetDTO, PetWriteDT
 			model.setId(dto.getId());
 		}
 		// check name, should be unique !
-		if(!dto.getName().isEmpty() && petDao.findByName(dto.getName()) == null) {
+		if(!StringUtils.isEmpty(dto.getName()) && petDao.findByName(dto.getName()) == null) {
 			model.setName(dto.getName());
 		}
 		// age
