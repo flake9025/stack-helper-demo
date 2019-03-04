@@ -2,6 +2,8 @@ package fr.vvlabs.stackhelper.demo.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 import fr.vvlabs.stackhelper.dto.AbstractDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +14,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper=true)
 @ToString
+@JsonFilter(value = "petFilter")
 public class PetDTO extends AbstractDto<Integer> {
 	
 	private static final long serialVersionUID = -485360954338618283L;
