@@ -14,7 +14,6 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper=true)
 @ToString
-@JsonFilter(value = "petFilter")
 public class PetDTO extends AbstractDto<Integer> {
 	
 	private static final long serialVersionUID = -485360954338618283L;

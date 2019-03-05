@@ -41,17 +41,4 @@ public class PetController extends AbstractRestController<Pet, Integer, PetDTO, 
 			) { //
 		return super.findAll(predicate, page, size, sort);
 	}
-	
-	@GetMapping(value = "pets/filter/{id}", params = "fields")
-    public ResponseEntity<MappingJacksonValue> getUser(@PathVariable("id") Integer id,
-                                                       @RequestParam("fields") String fields) {
-        
-		PetDTO myPet = service.findById(id);
-        MappingJacksonValue wrapper = new MappingJacksonValue(myPet);
-        
-        wrapper.setFilters(new SimpleFilterProvider()
-                                   .addFilter("petFilter",
-                                              SimpleBeanPropertyFilter.filterOutAllExcept(fields.split(","))));
-        return ResponseEntity.ok(wrapper);
-    }
 }
