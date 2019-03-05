@@ -26,19 +26,6 @@ public class PetController extends AbstractRestController<Pet, Integer, PetDTO, 
 	// crud endpoints are already defined !
 	// add only new services
 
-	@Autowired
-	private PetService service;
-	
-	@Override
-	@GetMapping
-	public ResponseEntity<Page<PetDTO>> findAll( //
-			@RequestParam(value = "page", required = false, defaultValue = "0") int page, //
-			@RequestParam(value = "size",  required = false, defaultValue = "30") int size, //
-			@RequestParam(value = "sort",  required = false) String sort //
-			) { //
-		return super.findAll(page, size, sort);
-	}
-	
 	@GetMapping(value = "pets/filter/{id}", params = "fields")
     public ResponseEntity<MappingJacksonValue> getUser(@PathVariable("id") Integer id,
                                                        @RequestParam("fields") String fields) {
