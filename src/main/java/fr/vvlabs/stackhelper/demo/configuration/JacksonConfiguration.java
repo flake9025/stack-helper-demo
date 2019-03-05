@@ -1,8 +1,7 @@
 package fr.vvlabs.stackhelper.demo.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
-import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -10,10 +9,8 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 @Configuration
 public class JacksonConfiguration  {
     
-    public ObjectMapper getJacksonObjectMapper() {
-        
-    	ObjectMapper mapper = new ObjectMapper();
-    	mapper.setFilterProvider(new SimpleFilterProvider().setFailOnUnknownId(false));
-        return mapper;
+    @Autowired(required = true)
+    public void configureJackson(ObjectMapper jackson2ObjectMapper) {
+        jackson2ObjectMapper.setFilterProvider(new SimpleFilterProvider().setFailOnUnknownId(false));
     }
 }
